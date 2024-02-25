@@ -91,3 +91,26 @@ for(let i=0; i < noms.length ; i++){
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
     .appendChild(abordablesElements)
+
+//Filtrage des pièces disponibles
+//Création de la liste
+const disponiblesItems = pieces.map(piece => {
+    if (piece.disponibilite) {
+        let result = {nom: piece.nom, prix: piece.prix};
+        return result;
+    }
+});
+disponiblesItems.forEach((element, index) => {
+    // if (!element) disponiblesItems.splice(disponiblesItems.indexOf(element), 1);
+    if (!element) disponiblesItems.splice(index, 1);
+});
+const disponiblesElement = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for(let i=0; i < disponiblesItems.length ; i++){
+    const nomElement = document.createElement('li');
+    nomElement.innerText = `${disponiblesItems[i].nom} - ${disponiblesItems[i].prix}€`;
+    disponiblesElement.appendChild(nomElement)
+}
+// Ajout de l'en-tête puis de la liste au bloc résultats filtres
+document.querySelector('.disponibles')
+    .appendChild(disponiblesElement)
