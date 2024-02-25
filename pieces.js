@@ -18,4 +18,5 @@ sectionFiches.appendChild(createElement_innerText( article.nom, "h2"));
 sectionFiches.appendChild(createElement_innerText(`Prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`));
 sectionFiches.appendChild(createElement_innerText(article.categorie?? "(aucune catégorie)"));
 sectionFiches.appendChild(createElement_innerText(article.description?? "(aucune description)"));
+sectionFiches.appendChild(createElement_innerText(article.disponibilite? "En stock" : "Rupture de stock"));
 
