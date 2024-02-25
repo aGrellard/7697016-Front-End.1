@@ -17,10 +17,12 @@ header {
 	text-align: center;
 	color: white;
 }
+
 header img {
 	height: 60px;
 	margin-left: 1rem;
 }
+
 header h1 {
 	flex-grow: 1;
 }
@@ -38,6 +40,7 @@ main {
 	min-width: 300px;
 	min-height: 400px;
 }
+
 .filtres h3 {
 	text-align: center;
 }
@@ -49,20 +52,50 @@ main {
 	grid-template-columns: repeat(3, 1fr);
 	gap: 4px;
 }
+
 .fiches article {
 	border: 1px solid black;
 	padding: 4px;
 }
+
 .fiches article img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 200px;
 }
+
 .fiches article p {
 	margin-top: 4px;
 	margin-bottom: 4px;
 }
+
 .fiches article h2 {
 	text-align: center;
+}
+
+.range-wrap {
+	position: relative;
+	margin: 1rem auto 1rem;
+}
+
+.range {
+	width: 100%;
+}
+
+.bubble {
+	background: red;
+	color: white;
+	padding: 4px 12px;
+	position: absolute;
+	border-radius: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(1em + 8px);
+}
+
+.bubble::after {
+	content: "";
+	position: absolute;
+
 }

@@ -130,3 +130,21 @@ for(let i=0 ; i < nomsDisponibles.length ; i++){
 const pElementDisponible = document.createElement('p')
 pElementDisponible.innerText = "Pièces disponibles:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
+
+document.getElementById('rangePrix').addEventListener('input', function(){
+    const valeur = this.value;
+    const piecesFiltrees = pieces.filter(piece => piece.prix <= valeur)
+    document.querySelector('.fiches').innerHTML = "";
+    genererPieces(piecesFiltrees);
+    setBubble(this, document.getElementById('rangePrix_bubble'));
+});
+document.getElementById('rangePrix').value = 60;
+
+function setBubble(range, bubble) {
+    const val = range.value;
+    const min = range.min ? range.min : 0;
+    const max = range.max ? range.max : 100;
+    const offset = Number(((val - min) * 100) / (max - min));
+    bubble.innerHTML = val;
+    bubble.style.left = `calc(${offset}% + (${8 - offset * 0.15}px))`;
+}
